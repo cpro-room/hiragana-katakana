@@ -128,6 +128,7 @@ h1 {
 /* 単語の問題 */
 .wordQuestion {
   margin: 35px 0 24px;
+  min-height: 220px;
   font-family: "Klee One", serif;
   font-weight: normal;
 }
@@ -589,7 +590,7 @@ function shuffle(array) {
 
 function getPool() {
   if (selected.size === 0) {
-    return Object.values(groups).flat();
+    return [];
   }
 
   let pool = [];
@@ -748,7 +749,17 @@ function createGroupButtons() {
 }
 function showCurrent() {
   if (queue.length === 0) {
-    rebuildQueue();
+    if (isWordMode()) {
+      document.getElementById("jp").textContent = "";
+      document.getElementById("kh").textContent = "";
+      document.getElementById("wordNextBtn").textContent = "▶";
+      showTranslation = false;
+    } else {
+      document.getElementById("kanaQuestion").textContent = "";
+    }
+
+    document.getElementById("counter").textContent = "";
+    return;
   }
 
   currentItem = queue[queueIndex];
@@ -777,9 +788,10 @@ function nextKana() {
 }
 
 function handleWordClick() {
+  if (queue.length === 0) return;
   if (!showTranslation) {
-    document.getElementById("kh").textContent =
-      activeDict[currentItem] || "訳が登録されていません";
+  document.getElementById("kh").textContent =
+  activeDict[currentItem] || "";
 
     showTranslation = true;
     document.getElementById("wordNextBtn").textContent = "▶";
