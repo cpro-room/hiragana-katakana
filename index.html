@@ -212,7 +212,20 @@ h1 {
   font-size: 15px;
 }
 
+@media (min-width: 481px) {
+  .logo {
+    width: 120px;
+  }
+}
+
 @media (max-width: 480px) {
+.logo {
+  width: 120px;
+  max-width: 40%;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+}
   body {
     padding: 10px;
   }
@@ -274,6 +287,7 @@ h1 {
 
 <!-- 最初の画面 -->
 <div id="menu">
+<img src="logo.png" class="logo" alt="">
   <h1>ひらがな　カタカナ</h1>
 
   <button class="menuBtn" onclick="startStudy('hiragana')">
@@ -295,6 +309,8 @@ h1 {
 
 <!-- 学習画面 -->
 <div id="study">
+
+<img src="logo.png" class="logo" alt="">
 
   <div class="topBar">
     <div id="screenTitle"></div>
