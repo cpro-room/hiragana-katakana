@@ -68,6 +68,24 @@ h1 {
   transform: scale(0.98);
 }
 
+.homeBtn {
+    display: inline-block;
+    width: auto;
+    padding: 8px 18px;
+    margin: 20px auto 0;
+    border: none;
+    border-radius: 10px;
+    background: #1976d2;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 3px 5px #0002;
+}
+
+.homeBtn:active {
+    transform: scale(0.98);
+}
+
 /* 学習画面 */
 #study {
   display: none;
@@ -302,9 +320,14 @@ h1 {
     ことば (ひらがな)
   </button>
 
-  <button class="menuBtn" onclick="startStudy('katakanaWords')">
+ <button class="menuBtn" onclick="startStudy('katakanaWords')">
     ことば(カタカナ)
-  </button>
+</button>
+
+<button class="homeBtn" onclick="location.href='https://cpro-room.github.io/JP-Learning/'">
+    Back
+</button>
+
 </div>
 
 <!-- 学習画面 -->
